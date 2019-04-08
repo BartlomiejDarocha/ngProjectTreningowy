@@ -10,8 +10,8 @@
       <h5>To Do list</h5>
       <ul>
         <li *ngFor="let item of taskList; let i=index">
-          <p>{{item}}</p>
-          <button (click)="delete($event)" data-id="del{{i}}">Delete Task</button>
+          <p data-id="del{{i}}">{{item}}</p>
+          <button (click)="delete($event)">Delete Task</button>
           <button (click)="done(item, $event)">Done Task</button>
         </li>
       </ul>

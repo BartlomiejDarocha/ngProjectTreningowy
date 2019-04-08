@@ -20,7 +20,7 @@ export class Tasklist2Component implements OnInit {
     let id = event.target.id;
     this.taskList.splice(id, 1);
   }
-  done(item, event) {
+  done(item: string, event) {
     this.doneList.push(item);
     this.delete(event);
   }
