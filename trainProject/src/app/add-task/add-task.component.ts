@@ -6,17 +6,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-task.component.less']
 })
 export class AddTaskComponent implements OnInit {
-  newTask: string;
-  @Output()
-  newTaskEmite = new EventEmitter <string>();
-
   constructor() { }
-
+  task: string = '';
+  @Output()
+  taskOut =  new EventEmitter <string>();
   ngOnInit() {
   }
-  addNewTask(): void {
-    this.newTaskEmite.emit(this.newTask);
-    this.newTask = '';
+  addTask() {
+    if(this.task.length > 0) {
+      this.taskOut.emit(this.task);
+      this.task = '';
+    }
   }
-
 }

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TasksToDoneComponent implements OnInit {
   @Input()
-  taskDone = [];
+  tasks;
   constructor() { }
 
   ngOnInit() {

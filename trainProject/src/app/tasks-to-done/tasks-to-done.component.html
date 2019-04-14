@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let task of taskDone">
-      <p> {{task}}</p>
-    </li>
-  </ul>
+  <li *ngFor="let item of tasks">
+    <p [innerText]="item"></p>
+  </li>
+</ul>

@@ -2,14 +2,14 @@
 <app-tasklist2></app-tasklist2>
 <app-task-list3></app-task-list3> -->
 <div class='container'>
-  <app-add-task (newTaskEmite)="addhandler($event)"></app-add-task>
+  <app-add-task (taskOut)="hadnlerAddTask($event)"></app-add-task>
 </div>
 <div class='container'>
-  <div class="toDoneList">
-    <app-tasks-to-do [tasks]="mainCompTask" (spliceId)="deleteHandler($event)" (doneTask)="doneTaskHander($event)"></app-tasks-to-do>
+  <div>
+    <app-tasks-to-do [tasks]="mainTasks" (deleteTaskIndex)="deleteTask($event)" (doneTaskObj)="doneTaskHandler($event)"></app-tasks-to-do>
   </div>
-  <div class="doneList">
-      <app-tasks-to-done [taskDone]="mainCompTaskDone"></app-tasks-to-done>
+  <div>
+    <app-tasks-to-done [tasks]="doneTasks"></app-tasks-to-done>
   </div>
 </div>
 <router-outlet></router-outlet>

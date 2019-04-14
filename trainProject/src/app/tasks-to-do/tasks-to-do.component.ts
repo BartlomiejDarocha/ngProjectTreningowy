@@ -6,23 +6,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./tasks-to-do.component.less']
 })
 export class TasksToDoComponent implements OnInit {
-  @Input()
-  tasks = [];
-  @Output()
-  spliceId = new EventEmitter <number>();
-  @Output()
-  doneTask = new EventEmitter <any>();
   constructor() { }
-
+  @Input()
+  tasks;
+  @Output()
+  deleteTaskIndex = new EventEmitter <string>();
+  @Output()
+  doneTaskObj = new EventEmitter <any>();
   ngOnInit() {
   }
-  deleteTask(event) {
-    let id = event.target.id;
-    this.spliceId.emit(id);
+  deleteTask(i) {
+    this.deleteTaskIndex.emit(i);
   }
-  doneTaskHand(task, event) {
-    let id = event.target.id;
-    this.doneTask.emit({emitDoneTask: task, emitId: id});
+  donetask(task, i) {
+    this.doneTaskObj.emit({index: i, emitTask: task});
   }
 
 }

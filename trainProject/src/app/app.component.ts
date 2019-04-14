@@ -7,18 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'trainProject';
-  mainCompTask = [];
-  mainCompTaskDone = [];
+  mainTasks = [];
+  doneTasks = [];
+  hadnlerAddTask(task: string) {
+    if(typeof task !== 'undefined') {
+      this.mainTasks.push(task);
+    }
 
-  addhandler(taskFromChild: string): void {
-    this.mainCompTask.push(taskFromChild);
   }
-  deleteHandler(idFormChidl: number): void {
-    this.mainCompTask.splice(idFormChidl, 1);
+  deleteTask(index: number) {
+    this.mainTasks.splice(index, 1);
   }
-  doneTaskHander(dataFromChild: any): void {
-    this.deleteHandler(dataFromChild.emitId);
-    this.mainCompTaskDone.push(dataFromChild.emitDoneTask);
+  doneTaskHandler(taskData: any) {
+    this.deleteTask(taskData.index);
+    this.doneTasks.push(taskData.emitTask);
   }
  }
 
