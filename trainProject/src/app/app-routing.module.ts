@@ -8,3 +8,12 @@ const routes: Routes = [];
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+export class Cat {
+  name: string;
+  age: number;
+  constructor(nameOfCat: string, ageOfCat: number){
+    this.name = nameOfCat;
+    this.age = ageOfCat;
+  }
+}

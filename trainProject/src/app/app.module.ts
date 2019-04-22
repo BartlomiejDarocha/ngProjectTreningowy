@@ -11,6 +11,7 @@ import { TaskList3Component } from './task-list3/task-list3.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TasksToDoComponent } from './tasks-to-do/tasks-to-do.component';
 import { TasksToDoneComponent } from './tasks-to-done/tasks-to-done.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TasksToDoneComponent } from './tasks-to-done/tasks-to-done.component';
     TaskList3Component,
     AddTaskComponent,
     TasksToDoComponent,
-    TasksToDoneComponent
+    TasksToDoneComponent,
+    ActionBarComponent
   ],
   imports: [
     BrowserModule,

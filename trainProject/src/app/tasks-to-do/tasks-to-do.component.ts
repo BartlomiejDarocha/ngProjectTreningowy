@@ -10,9 +10,11 @@ export class TasksToDoComponent implements OnInit {
   @Input()
   tasks;
   @Output()
-  deleteTaskIndex = new EventEmitter <string>();
+  deleteTaskIndex = new EventEmitter<string>();
   @Output()
-  doneTaskObj = new EventEmitter <any>();
+  doneTaskObj = new EventEmitter<any>();
+  @Output()
+  emitFilterTask = new EventEmitter<string>();
   ngOnInit() {
   }
   deleteTask(i) {
@@ -20,6 +22,9 @@ export class TasksToDoComponent implements OnInit {
   }
   donetask(task, i) {
     this.doneTaskObj.emit({index: i, emitTask: task});
+  }
+  filterTask(task:string){
+    this.emitFilterTask.emit(task);
   }
 
 }

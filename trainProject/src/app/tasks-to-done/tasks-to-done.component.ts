@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tasks-to-done',
@@ -9,8 +9,12 @@ export class TasksToDoneComponent implements OnInit {
   @Input()
   tasks;
   constructor() { }
-
+  @Output()
+  clearList = new EventEmitter <any>();
   ngOnInit() {
+  }
+  removeAll() {
+    this.clearList.emit();
   }
 
 }

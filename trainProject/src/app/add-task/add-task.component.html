@@ -1,4 +1,4 @@
 <div>
-  <input type="text" [(ngModel)]="task">
-  <button (click)="addTask();">Dodaj zadanie</button>
+  <input type="text" [(ngModel)]="task" (keydown.enter)="addTask()">
+  <button (click)="addTask()">Dodaj zadanie</button>
 </div>

@@ -5,11 +5,20 @@
   <app-add-task (taskOut)="hadnlerAddTask($event)"></app-add-task>
 </div>
 <div class='container'>
+  <app-action-bar [TaskList]="mainTasks" (emitLookingTask)="searchHandler($event)"></app-action-bar>
+</div>
+<div class='container'>
   <div>
-    <app-tasks-to-do [tasks]="mainTasks" (deleteTaskIndex)="deleteTask($event)" (doneTaskObj)="doneTaskHandler($event)"></app-tasks-to-do>
+    <app-tasks-to-do [tasks]="mainTasks" (deleteTaskIndex)="deleteTask($event)" (doneTaskObj)="doneTaskHandler($event)" (emitFilterTask)="filterHandler($event)"></app-tasks-to-do>
   </div>
   <div>
-    <app-tasks-to-done [tasks]="doneTasks"></app-tasks-to-done>
+    <p>test list narazie jest pusta</p>
+    <ul>
+      <li *ngFor="let item of testList" [innerText]="item"></li>
+    </ul>
+  </div>
+  <div>
+    <app-tasks-to-done [tasks]="doneTasks" (clearList)="clearListHandler()"></app-tasks-to-done>
   </div>
 </div>
 <router-outlet></router-outlet>

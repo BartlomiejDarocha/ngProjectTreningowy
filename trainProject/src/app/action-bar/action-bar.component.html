@@ -1,0 +1,5 @@
+<div>
+  <input type="text" [(ngModel)]="lookingTask" (keyup)="textHandler()" placeholder="Szukaj">
+  <button [disabled]="TaskList.length > 0? false : true" (click)="sortUp()">Sortuj Rosnąco</button>
+  <button [disabled]="TaskList.length > 0? false : true" (click)="sortDown()">Sortuj Malejąco</button>
+</div>
