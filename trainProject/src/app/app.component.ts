@@ -33,16 +33,9 @@ export class AppComponent {
     if (this.mainTasks.length > 0) {
       this.testList = this.mainTasks;
       this.testList = this.testList.filter((e) => e.includes(text));
-      if(text === ''){
-        this.testList = this.mainTasks;
+      if (text === '') {
+        this.testList = [];
       }
-      console.log(text, ' -text');
-      // this.mainTasks.forEach(el => {
-      //   if(el.includes(text)) {
-      //     console.log(el.includes(text), ' petla po mainTask na include text');
-      //     this.testList.push(el);
-      //   }
-      // });
     }
   }
 }
