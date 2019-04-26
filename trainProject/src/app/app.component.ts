@@ -32,7 +32,7 @@ export class AppComponent {
   searchHandler(text: string) {
     if (this.mainTasks.length > 0) {
       this.testList = this.mainTasks;
-      this.testList = this.testList.filter((e) => e.includes(text));
+      this.testList = this.testList.filter((e) => e.includes(text)); // zwraca tablice spelniająca warunek funkcji w metodzi filter
       if (text === '') {
         this.testList = [];
       }
