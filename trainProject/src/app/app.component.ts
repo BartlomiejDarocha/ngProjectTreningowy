@@ -36,6 +36,7 @@ export class AppComponent {
   }
   searchControler = () => {
     if (this.mainTasks.length > 0) {
+<<<<<<< HEAD
       this.lookingList = this.mainTasks;
       this.lookingList = this.lookingList.filter((e) => e.includes(this.searchingText));
       if(this.searchingText === ''){
@@ -43,6 +44,13 @@ export class AppComponent {
       }
     } else {
       this.lookingList = [];
+=======
+      this.testList = this.mainTasks;
+      this.testList = this.testList.filter((e) => e.includes(text));
+      if (text === '') {
+        this.testList = [];
+      }
+>>>>>>> 65b4bcf473dd62e338b1b7495ed6474c7b04aaff
     }
   }
   searchHandler(text: string) {
