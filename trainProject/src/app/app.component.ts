@@ -31,7 +31,9 @@ export class AppComponent {
     this.searchControler();
   }
   clearListHandler() {
+    this.mainTasks = this.mainTasks.concat(this.doneTasks);
     this.doneTasks = [];
+
     this.searchControler();
   }
   searchControler = () => {
