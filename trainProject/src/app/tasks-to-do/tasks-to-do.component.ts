@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-tasks-to-do',
   templateUrl: './tasks-to-do.component.html',
-  styleUrls: ['./tasks-to-do.component.less']
+  styleUrls: ['./tasks-to-do.component.less'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class TasksToDoComponent implements OnInit {
   constructor() { }
@@ -23,8 +24,11 @@ export class TasksToDoComponent implements OnInit {
   donetask(task, i) {
     this.doneTaskObj.emit({index: i, emitTask: task});
   }
-  filterTask(task:string){
+  filterTask(task: string) {
     this.emitFilterTask.emit(task);
+  }
+  getColor(): string {
+   return this.tasks.length <= 1 ? 'green' : 'red';
   }
 
 }

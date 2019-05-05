@@ -17,7 +17,7 @@ export class ActionBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.checkDublitaceTable();
+    //this.checkDublitaceTable();
   }
   textHandler() {
     this.emitLookingTask.emit(this.lookingTask);

@@ -8,7 +8,7 @@ import { TestBed } from '@angular/core/testing';
 })
 export class AppComponent {
   title = 'trainProject';
-  mainTasks = [];
+  mainTasks = ['ania', 'alicja', 'aga', 'aneta', 'magda', 'krystyna'];
   doneTasks = [];
   lookingList = [];
   searchingText = '';
