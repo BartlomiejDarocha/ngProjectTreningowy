@@ -3,9 +3,9 @@
   <li *ngFor="let task of tasks; let i=index; let odd = odd" [ngClass]="{'odd-li': odd === true, 'last-li': tasks.length ===1}">
     <div>
       <p [innerText]="task"></p>
-      <button (click)="deleteTask(i)">delete</button>
-      <button (click)="donetask(task, i)">Done Task</button>
-      <button (click)="filterTask(task)"> FiltrTask&delete</button>
+      <button type="button" class="btn btn-primary" (click)="deleteTask(i)">delete</button>
+      <button  type="button" class="btn btn-secondary" (click)="donetask(task, i)">Done Task</button>
+      <button type="button" class="btn btn-warning" (click)="filterTask(task)"> FiltrTask&delete</button>
     </div>
   </li>
 </ul>
