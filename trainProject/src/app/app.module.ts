@@ -12,6 +12,9 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { TasksToDoComponent } from './tasks-to-do/tasks-to-do.component';
 import { TasksToDoneComponent } from './tasks-to-done/tasks-to-done.component';
 import { ActionBarComponent } from './action-bar/action-bar.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgDatepickerModule } from 'ng2-datepicker';
+
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    NgDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

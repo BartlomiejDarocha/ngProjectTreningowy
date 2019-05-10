@@ -3,3 +3,15 @@
   <button [disabled]="TaskList.length > 0? false : true" (click)="sortUp()">Sortuj Rosnąco</button>
   <button [disabled]="TaskList.length > 0? false : true" (click)="sortDown()">Sortuj Malejąco</button>
 </div>
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">pokaz</button>
+      </div>
+    </div>
+  </div>
+</form>
+<ng-datepicker [options]="options" [(ngModel)] = "ng2date"></ng-datepicker>
