@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatepickerOptions } from 'ng2-datepicker';
-import * as frLocale from 'date-fns/locale/fr';
+import * as plLocale from 'date-fns/locale/pl';
 
 @Component({
   selector: 'app-action-bar',
@@ -8,7 +8,7 @@ import * as frLocale from 'date-fns/locale/fr';
   styleUrls: ['./action-bar.component.less']
 })
 export class ActionBarComponent implements OnInit {
-  testTable = ['ania','alicja','aga','aneta','magda', 'krystyna'];
+  testTable = ['ania', 'alicja', 'aga', 'aneta', 'magda', 'krystyna'];
   @Input()
   TaskList: Array<string>;
   lookingTask = '';
@@ -17,19 +17,20 @@ export class ActionBarComponent implements OnInit {
 
   model;
   ng2date;
+  dupa;
 
   options: DatepickerOptions = {
     minYear: 1970,
     maxYear: 2030,
-    displayFormat: 'MMM D[,] YYYY',
+    displayFormat: 'dd[  ]DD.MM.YYYY',
     barTitleFormat: 'MMMM YYYY',
     dayNamesFormat: 'dd',
     firstCalendarDay: 1, // 0 - Sunday, 1 - Monday
-    locale: frLocale,
+    locale: plLocale,
     // minDate: new Date(Date.now()), // Minimal selectable date
     // maxDate: new Date(Date.now()),  // Maximal selectable date
-    barTitleIfEmpty: 'Click to select a date',
-    placeholder: 'Click to select a date', // HTML input placeholder attribute (default: '')
+    barTitleIfEmpty: '',
+    placeholder: 'wybierz datę', // HTML input placeholder attribute (default: '')
     addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
     addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
     fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
@@ -58,7 +59,7 @@ export class ActionBarComponent implements OnInit {
       console.log(index, ' first itaration ' + tempName);
       for (let i = index; i < this.testTable.length; i++) {
         console.log(this.testTable[i] + '===' + tempName + ' sec loop');
-        if(this.testTable[i + 1] === tempName) {
+        if (this.testTable[i + 1] === tempName) {
           dublicated = true;
           console.log('dublicated is executed');
         }
