@@ -18,6 +18,7 @@ export class ActionBarComponent implements OnInit {
   model;
   ng2date;
   dupa;
+  newDatapicekr;
 
   options: DatepickerOptions = {
     minYear: 1970,
@@ -31,6 +32,23 @@ export class ActionBarComponent implements OnInit {
     // maxDate: new Date(Date.now()),  // Maximal selectable date
     barTitleIfEmpty: '',
     placeholder: 'wybierz datę', // HTML input placeholder attribute (default: '')
+    addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
+    addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
+    fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
+    useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown
+  };
+  optionsTwo: DatepickerOptions = {
+    minYear: 1970,
+    maxYear: 2030,
+    displayFormat: 'DD.MM.YYYY',
+    barTitleFormat: 'DD.MM.YYYY',
+    dayNamesFormat: 'dd',
+    firstCalendarDay: 0, // 0 - Sunday, 1 - Monday
+    locale: plLocale,
+    // minDate: new Date(Date.now()), // Minimal selectable date
+    // maxDate: new Date(Date.now()),  // Maximal selectable date
+    barTitleIfEmpty: '',
+    placeholder: 'wybierz datę Druga', // HTML input placeholder attribute (default: '')
     addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
     addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
     fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
@@ -68,5 +86,6 @@ export class ActionBarComponent implements OnInit {
     }
     console.log(dublicated, ' -is dublicted');
   }
+
 
 }
