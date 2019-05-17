@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as plLocale from 'date-fns/locale/pl';
 
@@ -7,36 +7,16 @@ import * as plLocale from 'date-fns/locale/pl';
   templateUrl: './action-bar.component.html',
   styleUrls: ['./action-bar.component.less']
 })
-export class ActionBarComponent implements OnInit {
-  testTable = ['ania', 'alicja', 'aga', 'aneta', 'magda', 'krystyna'];
+export class ActionBarComponent implements OnInit, DoCheck {
   @Input()
-  TaskList: Array<string>;
-  lookingTask = '';
+  taskList: Array<string>;
   @Output()
-  emitLookingTask = new EventEmitter<string>();
-
+  emitLookingList = new EventEmitter<any>();
+  lookingTask = '';
   model;
-  ng2date;
-  dupa;
   newDatapicekr;
 
-  options: DatepickerOptions = {
-    minYear: 1970,
-    maxYear: 2030,
-    displayFormat: 'dd[  ]DD.MM.YYYY',
-    barTitleFormat: 'MMMM YYYY',
-    dayNamesFormat: 'dd',
-    firstCalendarDay: 1, // 0 - Sunday, 1 - Monday
-    locale: plLocale,
-    // minDate: new Date(Date.now()), // Minimal selectable date
-    // maxDate: new Date(Date.now()),  // Maximal selectable date
-    barTitleIfEmpty: '',
-    placeholder: 'wybierz datę', // HTML input placeholder attribute (default: '')
-    addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
-    addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
-    fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
-    useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown
-  };
+  constructor() { }
   optionsTwo: DatepickerOptions = {
     minYear: 1970,
     maxYear: 2030,
@@ -55,37 +35,51 @@ export class ActionBarComponent implements OnInit {
     useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown
   };
 
-  constructor() { }
-
   ngOnInit() {
-    //this.checkDublitaceTable();
   }
+
+  ngDoCheck(): void {
+    if (this.lookingTask !== '') {
+      console.log('teraz odpala szukajke');
+      this.textHandler();
+    }
+  }
+
   textHandler() {
-    this.emitLookingTask.emit(this.lookingTask);
+    let lookingTasklist = this.taskList;
+    if (this.taskList.length > 0) {
+      lookingTasklist = lookingTasklist.filter((itemList) => {
+        return itemList.substring(0, this.lookingTask.length) === this.lookingTask;
+      });
+      if (this.lookingTask === '') {
+        lookingTasklist = [];
+      }
+    }
+    this.emitLookingList.emit(lookingTasklist);
   }
   sortUp() {
-    this.TaskList.sort();
+    this.taskList.sort();
   }
   sortDown() {
-    this.TaskList.sort();
-    this.TaskList.reverse();
+    this.taskList.sort();
+    this.taskList.reverse();
   }
-  checkDublitaceTable() {
-    let dublicated = false;
-    for (let index = 0; index < this.testTable.length; index++) {
-      let tempName = this.testTable[index];
-      console.log(index, ' first itaration ' + tempName);
-      for (let i = index; i < this.testTable.length; i++) {
-        console.log(this.testTable[i] + '===' + tempName + ' sec loop');
-        if (this.testTable[i + 1] === tempName) {
-          dublicated = true;
-          console.log('dublicated is executed');
-        }
-      }
-      console.log('------------');
-    }
-    console.log(dublicated, ' -is dublicted');
-  }
+  // checkDublitaceTable() {
+  //   let dublicated = false;
+  //   for (let index = 0; index < this.testTable.length; index++) {
+  //     const tempName = this.testTable[index];
+  //     console.log(index, ' first itaration ' + tempName);
+  //     for (let i = index; i < this.testTable.length; i++) {
+  //       console.log(this.testTable[i] + '===' + tempName + ' sec loop');
+  //       if (this.testTable[i + 1] === tempName) {
+  //         dublicated = true;
+  //         console.log('dublicated is executed');
+  //       }
+  //     }
+  //     console.log('------------');
+  //   }
+  //   console.log(dublicated, ' -is dublicted');
+  // }
 
 
 }

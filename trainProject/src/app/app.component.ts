@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +11,9 @@ export class AppComponent {
   doneTasks = [];
   lookingList = [];
   searchingText = '';
+  handlerLookignList(lookingList: Array<string>) {
+    this.lookingList = lookingList;
+  }
   hadnlerAddTask(task: string) {
     if (typeof task !== 'undefined') {
       this.mainTasks.push(task);
@@ -19,38 +21,22 @@ export class AppComponent {
   }
   deleteTask(index: number) {
     this.mainTasks.splice(index, 1);
-    this.searchControler();
+
   }
   doneTaskHandler(taskData: any) {
     this.deleteTask(taskData.index);
     this.doneTasks.push(taskData.emitTask);
-    this.searchControler();
+
   }
   filterHandler(task: string) {
     this.mainTasks = this.mainTasks.filter((e) => e !== task);
-    this.searchControler();
+
   }
   clearListHandler() {
     this.mainTasks = this.mainTasks.concat(this.doneTasks);
     this.doneTasks = [];
+  }
 
-    this.searchControler();
-  }
-  searchControler = () => {
-    if (this.mainTasks.length > 0) {
-      this.lookingList = this.mainTasks;
-      this.lookingList = this.lookingList.filter((e) => e.includes(this.searchingText));
-      if(this.searchingText === '') {
-        this.lookingList = [];
-      }
-    } else {
-      this.lookingList = [];
-    }
-  }
-  searchHandler(text: string) {
-    this.searchingText = text;
-    this.searchControler();
-  }
 }
 
 

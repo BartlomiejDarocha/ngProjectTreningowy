@@ -1,12 +1,12 @@
 <div>
   <input type="text" [(ngModel)]="lookingTask" (keyup)="textHandler()" placeholder="Szukaj">
-  <button [disabled]="TaskList.length > 0? false : true" (click)="sortUp()">Sortuj Rosnąco</button>
-  <button [disabled]="TaskList.length > 0? false : true" (click)="sortDown()">Sortuj Malejąco</button>
+  <button [disabled]="taskList.length > 0? false : true" (click)="sortUp()">Sortuj Rosnąco</button>
+  <button [disabled]="taskList.length > 0? false : true" (click)="sortDown()">Sortuj Malejąco</button>
 </div>
 <form class="form-inline">
   <div class="form-group">
     <div class="input-group">
-      <input class="form-control" placeholder="yyyy-mm-dd"
+      <input class="form-control" placeholder="bootstrap datapicerk"
              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">pokaz</button>
@@ -14,6 +14,4 @@
     </div>
   </div>
 </form>
-<ng-datepicker [options]="options" [(ngModel)] = "ng2date"></ng-datepicker>
-<h2>nowy data picker</h2>
 <ng-datepicker [options]="optionsTwo" [(ngModel)] = "newDatapicekr"></ng-datepicker>
