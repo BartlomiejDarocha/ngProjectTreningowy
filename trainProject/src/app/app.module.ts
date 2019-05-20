@@ -11,6 +11,7 @@ import { TasksToDoneComponent } from './tasks-to-done/tasks-to-done.component';
 import { ActionBarComponent } from './action-bar/action-bar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgDatepickerModule } from 'ng2-datepicker';
+import { TasksService } from './services/tasks.service';
 
 
 
@@ -30,7 +31,7 @@ import { NgDatepickerModule } from 'ng2-datepicker';
     NgbModule,
     NgDatepickerModule
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

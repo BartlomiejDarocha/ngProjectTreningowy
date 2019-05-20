@@ -40,7 +40,6 @@ export class ActionBarComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     if (this.lookingTask !== '') {
-      console.log('teraz odpala szukajke');
       this.textHandler();
     }
   }

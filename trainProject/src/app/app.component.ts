@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TasksService } from './services/tasks.service';
 
 @Component({
   selector: 'app-root',
@@ -6,36 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'trainProject';
-  mainTasks = ['ania', 'alicja', 'aga', 'aneta', 'magda', 'krystyna'];
-  doneTasks = [];
-  lookingList = [];
-  searchingText = '';
+  lookingList: Array<string> = [];
+  mainTasks: Array<string> = [];
+  constructor(private taskService: TasksService) {
+    this.taskService.getTaskListObs().subscribe((Tasks: Array<string>) => {
+      this.mainTasks = Tasks;
+    });
+  }
   handlerLookignList(lookingList: Array<string>) {
     this.lookingList = lookingList;
   }
-  hadnlerAddTask(task: string) {
-    if (typeof task !== 'undefined') {
-      this.mainTasks.push(task);
-    }
-  }
-  deleteTask(index: number) {
-    this.mainTasks.splice(index, 1);
 
-  }
-  doneTaskHandler(taskData: any) {
-    this.deleteTask(taskData.index);
-    this.doneTasks.push(taskData.emitTask);
-
-  }
-  filterHandler(task: string) {
-    this.mainTasks = this.mainTasks.filter((e) => e !== task);
-
-  }
-  clearListHandler() {
-    this.mainTasks = this.mainTasks.concat(this.doneTasks);
-    this.doneTasks = [];
-  }
 
 }
 
