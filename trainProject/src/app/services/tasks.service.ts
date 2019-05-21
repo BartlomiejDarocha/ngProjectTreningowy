@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Task } from '../models/task';
 
 @Injectable()
 export class TasksService {
-  private mainTasks: Array<string> = []; //private bo wiadomo to jest serwis wiec nie chcemy zeby pola bylu publiczne
-  private doneTasks: Array<string> = [];
+  private mainTasks: Array<Task> = []; //private bo wiadomo to jest serwis wiec nie chcemy zeby pola bylu publiczne
+  private doneTasks: Array<Task> = [];
 
-  private tasksListObs = new BehaviorSubject<Array<string>>(this.mainTasks); // musi zostac odrazu zainicjalizowanony zeby działa poprawnie
-  private tasksDoneObs = new BehaviorSubject<Array<string>>(this.mainTasks);
+  private tasksListObs = new BehaviorSubject<Array<Task>>([]); // musi zostac odrazu zainicjalizowanony zeby działa poprawnie
+  private tasksDoneObs = new BehaviorSubject<Array<Task>>([]);
 
 
   constructor() {
-    this.mainTasks = ['ania', 'alicja', 'aga', 'aneta', 'magda', 'krystyna'];
+    this.mainTasks = [
+      { name: 'ania', created: new Date() },
+      { name: 'alicja', created: new Date() },
+      { name: 'aga', created: new Date() },
+      { name: 'aneta', created: new Date() },
+      { name: 'magda', created: new Date() },
+      { name: 'krystyna', created: new Date() },
+    ];
     this.tasksListObs.next(this.mainTasks);
   }
 
-  hadnlerAddTask(task: string) {
+  hadnlerAddTask(task: Task) {
     if (typeof task !== 'undefined') {
       this.mainTasks.push(task);
       // tslint:disable-next-line:max-line-length
@@ -26,12 +34,12 @@ export class TasksService {
     this.mainTasks.splice(index, 1);
     this.tasksListObs.next(this.mainTasks); // jak wyzej
   }
-  doneTaskHandler(taskData: any) {
-    this.doneTasks.push(taskData.emitTask);
-    this.deleteTask(taskData.index);
+  doneTaskHandler(dataObj: any) {
+    this.doneTasks.push(dataObj.emitTask);
+    this.deleteTask(dataObj.index);
     this.tasksDoneObs.next(this.doneTasks); // jak wyzej ale tym razem doneList
   }
-  filterHandler(task: string) {
+  filterHandler(task: Task) {
     this.mainTasks = this.mainTasks.filter((e) => e !== task);
     this.tasksListObs.next(this.mainTasks); // jak wyżej
   }
@@ -44,10 +52,10 @@ export class TasksService {
   // te Metody da po by można się było dobrać do tych list czyli najpier po przez next()
   /// pisze metody działające na listach
   // następni przez metody get.. i observable daje się im dostęp dla komponetw
-  getTaskListObs(): Observable<Array<string>> {
+  getTaskListObs(): Observable<Array<Task>> {
     return this.tasksListObs.asObservable();
   }
-  getTaskDoneObs(): Observable<Array<string>> {
+  getTaskDoneObs(): Observable<Array<Task>> {
     return this.tasksDoneObs.asObservable();
   }
 

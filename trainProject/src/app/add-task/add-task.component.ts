@@ -1,5 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../services/tasks.service';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-add-task',
@@ -12,8 +13,9 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {
   }
   addTask() {
+    const task: Task = ({ name: this.task, created: new Date() });
     if (this.task.length > 0) {
-      this.taskService.hadnlerAddTask(this.task); // dzialnie na metodach z servius
+      this.taskService.hadnlerAddTask(task); // dzialnie na metodach z servius
       this.task = '';
     }
   }

@@ -1,6 +1,6 @@
 <button (click)="removeAll()">removeAll</button>
 <ul>
   <li *ngFor="let item of tasksListDone">
-    <p [innerText]="item"></p>
+    <p [innerText]="item.name"></p>
   </li>
 </ul>

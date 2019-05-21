@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let task of tasksList; let i=index; let odd = odd" [ngClass]="{'odd-li': odd === true, 'last-li': tasksList.length ===1}">
     <div>
-      <p [innerText]="task"></p>
+      <p [innerText]="task.name"></p>
       <button type="button" class="btn btn-primary" (click)="deleteTask(i)">delete</button>
       <button  type="button" class="btn btn-secondary" (click)="donetask(task, i)">Done Task</button>
       <button type="button" class="btn btn-warning" (click)="filterTask(task)"> FiltrTask&delete</button>

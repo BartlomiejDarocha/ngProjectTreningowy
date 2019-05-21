@@ -1,22 +1,27 @@
-import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DatepickerOptions } from 'ng2-datepicker';
 import * as plLocale from 'date-fns/locale/pl';
+import { Task } from '../models/task';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-action-bar',
   templateUrl: './action-bar.component.html',
   styleUrls: ['./action-bar.component.less']
 })
-export class ActionBarComponent implements OnInit, DoCheck {
-  @Input()
-  taskList: Array<string>;
+export class ActionBarComponent implements OnInit {
+  taskList: Array<Task>;
   @Output()
-  emitLookingList = new EventEmitter<any>();
+  emitLookingList = new EventEmitter<Array<Task>>();
   lookingTask = '';
   model;
   newDatapicekr;
 
-  constructor() { }
+  constructor(private taskService: TasksService) {
+    this.taskService.getTaskListObs().subscribe((tasks: Array<Task>) => {
+      this.taskList = tasks;
+    });
+  }
   optionsTwo: DatepickerOptions = {
     minYear: 1970,
     maxYear: 2030,
@@ -38,17 +43,11 @@ export class ActionBarComponent implements OnInit, DoCheck {
   ngOnInit() {
   }
 
-  ngDoCheck(): void {
-    if (this.lookingTask !== '') {
-      this.textHandler();
-    }
-  }
-
   textHandler() {
     let lookingTasklist = this.taskList;
     if (this.taskList.length > 0) {
       lookingTasklist = lookingTasklist.filter((itemList) => {
-        return itemList.substring(0, this.lookingTask.length) === this.lookingTask;
+        return itemList.name.substring(0, this.lookingTask.length) === this.lookingTask;
       });
       if (this.lookingTask === '') {
         lookingTasklist = [];
