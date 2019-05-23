@@ -12,6 +12,7 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { TasksService } from './services/tasks.service';
+import { CheckedDirective } from './shared/checked.directive';
 
 
 
@@ -21,7 +22,8 @@ import { TasksService } from './services/tasks.service';
     AddTaskComponent,
     TasksToDoComponent,
     TasksToDoneComponent,
-    ActionBarComponent
+    ActionBarComponent,
+    CheckedDirective
   ],
   imports: [
     BrowserModule,
