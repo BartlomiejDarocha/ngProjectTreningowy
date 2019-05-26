@@ -1,6 +1,6 @@
 <button (click)="removeAll()">removeAll</button>
 <ul>
-  <li appChecked *ngFor="let item of tasksListDone">
+  <li appChecked appDate [date]="item.endTask" *ngFor="let item of tasksListDone">
     <p [innerText]="item.name"></p>
   </li>
 </ul>

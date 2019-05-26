@@ -22,6 +22,7 @@ export class TasksToDoComponent implements OnInit {
     this.taskService.deleteTask(i); // dzialnie na metodach z servius
   }
   donetask(task: Task, i: number) {
+    task.endTask = new Date();
     this.taskService.doneTaskHandler({ index: i, emitTask: task }); // dzialnie na metodach z servius
   }
   filterTask(task: Task) {

@@ -13,6 +13,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgDatepickerModule } from 'ng2-datepicker';
 import { TasksService } from './services/tasks.service';
 import { CheckedDirective } from './shared/checked.directive';
+import { BgColorRedDirective } from './shared/bg-color-red.directive';
+import { DateDirective } from './shared/date.directive';
 
 
 
@@ -23,7 +25,9 @@ import { CheckedDirective } from './shared/checked.directive';
     TasksToDoComponent,
     TasksToDoneComponent,
     ActionBarComponent,
-    CheckedDirective
+    CheckedDirective,
+    BgColorRedDirective,
+    DateDirective
   ],
   imports: [
     BrowserModule,
