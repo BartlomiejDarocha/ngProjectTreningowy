@@ -15,6 +15,7 @@ import { TasksService } from './services/tasks.service';
 import { CheckedDirective } from './shared/checked.directive';
 import { BgColorRedDirective } from './shared/bg-color-red.directive';
 import { DateDirective } from './shared/date.directive';
+import { TransformTaskPipe } from './shared/transform-task.pipe';
 
 
 
@@ -27,7 +28,8 @@ import { DateDirective } from './shared/date.directive';
     ActionBarComponent,
     CheckedDirective,
     BgColorRedDirective,
-    DateDirective
+    DateDirective,
+    TransformTaskPipe
   ],
   imports: [
     BrowserModule,
