@@ -2,6 +2,7 @@
   <input type="text" [(ngModel)]="lookingTask" (keyup)="textHandler()" placeholder="Szukaj">
   <button [disabled]="taskList.length > 0? false : true" (click)="sortUp()">Sortuj Rosnąco</button>
   <button [disabled]="taskList.length > 0? false : true" (click)="sortDown()">Sortuj Malejąco</button>
+  <button (click)="TaskRandomHandler(5, 10)">Task Rabdom</button>
 </div>
 <form class="form-inline">
   <div class="form-group">

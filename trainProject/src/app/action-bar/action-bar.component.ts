@@ -42,6 +42,10 @@ export class ActionBarComponent implements OnInit {
 
   ngOnInit() {
   }
+  TaskRandomHandler(min: number, max: number) {
+    const rollNumber = Math.round(Math.random() * (max - min)) + min;
+    console.log(rollNumber);
+  }
 
   textHandler() {
     let lookingTasklist = this.taskList;
