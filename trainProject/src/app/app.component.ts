@@ -8,7 +8,6 @@ import { Task } from './models/task';
 })
 export class AppComponent {
   lookingList: Array<Task> = [];
-  mainTasks: Array<Task> = [];
   constructor() {}
   handlerLookignList(lookingListFromEmit: Array<Task>) {
     this.lookingList = lookingListFromEmit;

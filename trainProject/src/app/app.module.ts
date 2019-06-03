@@ -16,6 +16,8 @@ import { CheckedDirective } from './shared/checked.directive';
 import { BgColorRedDirective } from './shared/bg-color-red.directive';
 import { DateDirective } from './shared/date.directive';
 import { TransformTaskPipe } from './shared/transform-task.pipe';
+import { DateListCompoComponent } from './date-list-compo/date-list-compo.component';
+import { DataShowerPipe } from './shared/data-shower.pipe';
 
 
 
@@ -29,7 +31,9 @@ import { TransformTaskPipe } from './shared/transform-task.pipe';
     CheckedDirective,
     BgColorRedDirective,
     DateDirective,
-    TransformTaskPipe
+    TransformTaskPipe,
+    DateListCompoComponent,
+    DataShowerPipe
   ],
   imports: [
     BrowserModule,

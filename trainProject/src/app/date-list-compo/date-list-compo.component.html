@@ -1,0 +1,4 @@
+<h2>TEST Pipe dateShower</h2>
+<div *ngFor="let item of dateList; let i=index">
+  <h3 [innerText]="item | dataShower:{index:i, date:item}"></h3>
+</div>
