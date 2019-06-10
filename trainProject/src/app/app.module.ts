@@ -18,6 +18,7 @@ import { DateDirective } from './shared/date.directive';
 import { TransformTaskPipe } from './shared/transform-task.pipe';
 import { DateListCompoComponent } from './date-list-compo/date-list-compo.component';
 import { DataShowerPipe } from './shared/data-shower.pipe';
+import { SortNamePipe } from './shared/sort-name.pipe';
 
 
 
@@ -33,7 +34,8 @@ import { DataShowerPipe } from './shared/data-shower.pipe';
     DateDirective,
     TransformTaskPipe,
     DateListCompoComponent,
-    DataShowerPipe
+    DataShowerPipe,
+    SortNamePipe
   ],
   imports: [
     BrowserModule,

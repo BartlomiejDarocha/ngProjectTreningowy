@@ -13,6 +13,7 @@ export class TasksService {
 
   constructor() {
     this.mainTasks = [
+      { name: 'Wioleta', created: new Date() },
       { name: 'ania', created: new Date() },
       { name: 'alicja', created: new Date() },
       { name: 'aga', created: new Date() },
