@@ -13,7 +13,7 @@ export class TasksToDoComponent implements OnInit {
   constructor(private taskService: TasksService) {
     // bierzmey tasksServise bierzmey ListOBs potem ssubskrybcja i przypisanie do zmiennej
     this.taskService.getTaskListObs().subscribe((tasks: Array<Task>) => {
-      this.tasksList = tasks;
+      this.tasksList = tasks.slice();
     });
   }
   ngOnInit() {
