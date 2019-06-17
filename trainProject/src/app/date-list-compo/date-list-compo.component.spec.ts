@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Tasklist2Component } from './tasklist2.component';
+import { DateListCompoComponent } from './date-list-compo.component';
 
-describe('Tasklist2Component', () => {
-  let component: Tasklist2Component;
-  let fixture: ComponentFixture<Tasklist2Component>;
+describe('DateListCompoComponent', () => {
+  let component: DateListCompoComponent;
+  let fixture: ComponentFixture<DateListCompoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Tasklist2Component ]
+      declarations: [ DateListCompoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Tasklist2Component);
+    fixture = TestBed.createComponent(DateListCompoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

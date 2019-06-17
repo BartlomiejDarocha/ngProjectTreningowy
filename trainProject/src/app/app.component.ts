@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Task } from './models/task';
 
 @Component({
   selector: 'app-root',
@@ -7,49 +7,10 @@ import { TestBed } from '@angular/core/testing';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'trainProject';
-  mainTasks = [];
-  doneTasks = [];
-  lookingList = [];
-  searchingText = '';
-  hadnlerAddTask(task: string) {
-    if (typeof task !== 'undefined') {
-      this.mainTasks.push(task);
-    }
-  }
-  deleteTask(index: number) {
-    this.mainTasks.splice(index, 1);
-    this.searchControler();
-  }
-  doneTaskHandler(taskData: any) {
-    this.deleteTask(taskData.index);
-    this.doneTasks.push(taskData.emitTask);
-    this.searchControler();
-  }
-  filterHandler(task: string) {
-    this.mainTasks = this.mainTasks.filter((e) => e !== task);
-    this.searchControler();
-  }
-  clearListHandler() {
-    this.mainTasks = this.mainTasks.concat(this.doneTasks);
-    this.doneTasks = [];
-
-    this.searchControler();
-  }
-  searchControler = () => {
-    if (this.mainTasks.length > 0) {
-      this.lookingList = this.mainTasks;
-      this.lookingList = this.lookingList.filter((e) => e.includes(this.searchingText));
-      if(this.searchingText === '') {
-        this.lookingList = [];
-      }
-    } else {
-      this.lookingList = [];
-    }
-  }
-  searchHandler(text: string) {
-    this.searchingText = text;
-    this.searchControler();
+  lookingList: Array<Task> = [];
+  constructor() {}
+  handlerLookignList(lookingListFromEmit: Array<Task>) {
+    this.lookingList = lookingListFromEmit;
   }
 }
 

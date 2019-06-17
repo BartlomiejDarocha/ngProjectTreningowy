@@ -1,6 +1,6 @@
 <button (click)="removeAll()">removeAll</button>
 <ul>
-  <li *ngFor="let item of tasks">
-    <p [innerText]="item"></p>
+  <li appChecked appDate [date]="item.endTask" *ngFor="let item of tasksListDone">
+    <p [innerText]="item.name | transformTask: ' -zadanie skończone'"></p>
   </li>
 </ul>

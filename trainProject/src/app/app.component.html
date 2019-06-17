@@ -2,23 +2,24 @@
 <app-tasklist2></app-tasklist2>
 <app-task-list3></app-task-list3> -->
 <div class='container'>
-  <app-add-task (taskOut)="hadnlerAddTask($event)"></app-add-task>
+  <app-add-task></app-add-task>
 </div>
 <div class='container'>
-  <app-action-bar [TaskList]="mainTasks" (emitLookingTask)="searchHandler($event)"></app-action-bar>
+  <app-action-bar (emitLookingList)="handlerLookignList($event)"></app-action-bar>
 </div>
 <div class='container'>
   <div>
-    <app-tasks-to-do [tasks]="mainTasks" (deleteTaskIndex)="deleteTask($event)" (doneTaskObj)="doneTaskHandler($event)" (emitFilterTask)="filterHandler($event)"></app-tasks-to-do>
+    <app-tasks-to-do></app-tasks-to-do>
   </div>
   <div>
     <p>test list narazie jest pusta</p>
     <ul>
-      <li *ngFor="let item of lookingList" [innerText]="item"></li>
+      <li *ngFor="let item of lookingList" [innerText]="item.name"></li>
     </ul>
   </div>
   <div>
-    <app-tasks-to-done [tasks]="doneTasks" (clearList)="clearListHandler()"></app-tasks-to-done>
+    <app-tasks-to-done></app-tasks-to-done>
   </div>
 </div>
+<app-date-list-compo></app-date-list-compo>
 <router-outlet></router-outlet>
