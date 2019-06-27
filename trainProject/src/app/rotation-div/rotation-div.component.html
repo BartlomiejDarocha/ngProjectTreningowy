@@ -1,0 +1,20 @@
+<p>
+  rotation-div works!
+</p>
+
+<div class="wrapper">
+  <div class="greenbox">
+    <div [ngStyle]="{'transform': 'rotate('+ rotateAngel + 'deg)'}" class="columnWrapper">
+      <div class="topCanon"></div>
+      <div class="bottomCanon"></div>
+    </div>
+  </div>
+  <div class="movebar">
+    <div (click)="rotateHandlerLeft()" class="left"></div>
+    <div (click)="rotateHandlerRight()" class="right"></div>
+  </div>
+</div>
+<div (mousemove)="testFill($event)" class="testFill">
+  <div [ngStyle]="{'width': procentage +'%'}" class="innerDiv"></div>
+</div>
+<div></div>

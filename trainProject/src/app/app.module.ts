@@ -19,6 +19,7 @@ import { TransformTaskPipe } from './shared/transform-task.pipe';
 import { DateListCompoComponent } from './date-list-compo/date-list-compo.component';
 import { DataShowerPipe } from './shared/data-shower.pipe';
 import { SortNamePipe } from './shared/sort-name.pipe';
+import { RotationDivComponent } from './rotation-div/rotation-div.component';
 
 
 
@@ -35,7 +36,8 @@ import { SortNamePipe } from './shared/sort-name.pipe';
     TransformTaskPipe,
     DateListCompoComponent,
     DataShowerPipe,
-    SortNamePipe
+    SortNamePipe,
+    RotationDivComponent
   ],
   imports: [
     BrowserModule,
