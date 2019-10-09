@@ -20,6 +20,7 @@ import { DateListCompoComponent } from './date-list-compo/date-list-compo.compon
 import { DataShowerPipe } from './shared/data-shower.pipe';
 import { SortNamePipe } from './shared/sort-name.pipe';
 import { RotationDivComponent } from './rotation-div/rotation-div.component';
+import { LevelBarDirective } from './shared/level-bar.directive';
 
 
 
@@ -37,7 +38,8 @@ import { RotationDivComponent } from './rotation-div/rotation-div.component';
     DateListCompoComponent,
     DataShowerPipe,
     SortNamePipe,
-    RotationDivComponent
+    RotationDivComponent,
+    LevelBarDirective
   ],
   imports: [
     BrowserModule,

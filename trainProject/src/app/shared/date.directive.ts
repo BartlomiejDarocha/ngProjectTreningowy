@@ -6,7 +6,7 @@ import { Directive, HostListener, Input, ElementRef, Renderer2 } from '@angular/
 export class DateDirective {
 
   @Input()
-  private date: Date;
+  private date: Date; // to jest przeciez input debilu!!!
   private paragraph; //p
 
   constructor(private el: ElementRef, private renderer: Renderer2) {

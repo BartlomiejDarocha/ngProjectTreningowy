@@ -1,6 +1,6 @@
 <p [ngStyle]="{color:getColor()}">Zadanie do wykonania {{tasksList.length}}</p>
 <ul>
-  <li appDate [date]="task.created" *ngFor="let task of tasksList | sortName; let i=index; let odd = odd" [ngClass]="{'odd-li': odd === true, 'last-li': tasksList.length ===1}">
+  <li appLevelBar appDate [date]="task.created"  *ngFor="let task of tasksList | sortName; let i=index; let odd = odd" [ngClass]="{'odd-li': odd === true, 'last-li': tasksList.length ===1}">
     <div>
       <p [innerText]="task.name | transformTask:'!' "></p>
       <button type="button" class="btn btn-primary" (click)="deleteTask(i)">delete</button>
