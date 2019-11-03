@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TasksToDoComponent } from './tasks-to-do/tasks-to-do.component';
 import { TasksToDoneComponent } from './tasks-to-done/tasks-to-done.component';
@@ -21,6 +21,11 @@ import { DataShowerPipe } from './shared/data-shower.pipe';
 import { SortNamePipe } from './shared/sort-name.pipe';
 import { RotationDivComponent } from './rotation-div/rotation-div.component';
 import { LevelBarDirective } from './shared/level-bar.directive';
+//import { MatDialogModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { MainService } from './services/main.service';
+import { Interceptor } from './intercereptor/intercerepotr';
 
 
 
@@ -39,7 +44,8 @@ import { LevelBarDirective } from './shared/level-bar.directive';
     DataShowerPipe,
     SortNamePipe,
     RotationDivComponent,
-    LevelBarDirective
+    LevelBarDirective,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,9 +53,18 @@ import { LevelBarDirective } from './shared/level-bar.directive';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    NgDatepickerModule
+    NgDatepickerModule,
+    //MatDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [TasksService],
+  providers: [
+    TasksService,
+    MainService,
+      { provide: HTTP_INTERCEPTORS,
+        useClass: Interceptor,
+        multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
